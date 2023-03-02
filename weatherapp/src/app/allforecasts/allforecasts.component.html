@@ -1,1 +1,13 @@
-<p>allforecasts works!</p>
+<section>
+    <h3>All cities</h3>
+    <div *ngIf="forecasts.length > 0">
+      <app-card
+        *ngFor="let forecast of forecasts"
+        [weather]="forecast"
+        class="card-container"
+      ></app-card>
+    </div>
+    <div *ngIf="forecasts.length == 0">
+      <p>There are no popular cities at the moment</p>
+    </div>
+  </section>

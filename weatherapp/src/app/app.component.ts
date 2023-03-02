@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Weather } from './weather';
 
 @Component({
   selector: 'app-root',

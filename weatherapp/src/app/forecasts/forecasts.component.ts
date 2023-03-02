@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Weather } from '../weather';
 import { ForecastsService } from '../services/forecasts.service';
 
@@ -11,13 +11,16 @@ export class ForecastsComponent {
   rainForecasts: Weather[] = [];
   hottestForecasts: Weather[] = [];
   popularForecasts: Weather[] = [];
-  constructor(private forecastService: ForecastsService) { }
 
-  ngoninit(): void {
+  constructor(private forecastService: ForecastsService, private cdr: ChangeDetectorRef) { }
+
+  ngOnInit(): void {
+
     this.forecastService.getRainyForecasts().subscribe((rainForecasts: Weather[]) => {
       console.log(rainForecasts);
       this.rainForecasts = rainForecasts;
     });
+
     this.forecastService.getHottestForecasts().subscribe((hottestForecasts: Weather[]) => {
       console.log(hottestForecasts);
       this.hottestForecasts = hottestForecasts;
@@ -26,6 +29,7 @@ export class ForecastsComponent {
       console.log(popularForecasts);
       this.popularForecasts = popularForecasts;
     });
+    this.cdr.detectChanges();
   }
 
 

@@ -23,7 +23,6 @@ export class ForecastsService {
 
   getPopularForecasts(): Observable<Weather[]> {
     const popularForecasts = this.http.get(`${this.BASE_URL}/popular`) as Observable<Weather[]>;
-    
     return popularForecasts;
   }
 

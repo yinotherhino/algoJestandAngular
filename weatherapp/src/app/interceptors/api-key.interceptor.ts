@@ -5,7 +5,7 @@ import { environment } from '../../environments/environments.prod';
 @Injectable()
 export class ApiKeyInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const apiKey = environment.apiKey;
+    const apiKey = encodeURIComponent(environment.apiKey);
 
     // Clone the request and append the API key to the headers
     const authReq = req.clone({

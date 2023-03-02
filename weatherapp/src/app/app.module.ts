@@ -31,7 +31,9 @@ import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
     FontAwesomeModule,
     StoreModule.forRoot({}, {})
   ],
-  providers: [{provide:HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true}],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
