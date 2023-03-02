@@ -1,0 +1,17 @@
+.card-container {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.card-container > div {
+  margin: 0 10px 0 0;
+}
+
+p {
+  color: var(--deep-blue);
+  margin: 0 0 10px;
+}
+
+section {
+margin-bottom: 30px;
+}

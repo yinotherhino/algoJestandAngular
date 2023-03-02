@@ -1,0 +1,49 @@
+<section class="popular-cities">
+  <h3>Popular cities</h3>
+  <div *ngIf="popularForecasts.length > 0">
+    <app-card
+      *ngFor="let forecast of popularForecasts"
+      [weather]="forecast"
+      class="card-container"
+    ></app-card>
+  </div>
+  <div *ngIf="popularForecasts.length == 0">
+    <p>There are no popular cities at the moment</p>
+  </div>
+</section>
+
+<p>
+  <app-button
+    [text]="'see all cities'"
+    bgcolor="var(--icon-color)"
+    color="var(--white)"
+  ></app-button>
+</p>
+
+<section class="rainy-cities">
+  <h3>Rainy cities</h3>
+  <div *ngIf="rainForecasts.length > 0">
+    <app-card
+      *ngFor="let forecast of rainForecasts"
+      [weather]="forecast"
+      class="card-container"
+    ></app-card>
+  </div>
+  <div *ngIf="rainForecasts.length == 0">
+    <p>There are no rainy cities at the moment</p>
+  </div>
+</section>
+
+<section class="popular-cities">
+  <h3>Hottest cities</h3>
+  <div *ngIf="hottestForecasts.length > 0">
+    <app-card
+      *ngFor="let forecast of hottestForecasts"
+      [weather]="forecast"
+      class="card-container"
+    ></app-card>
+  </div>
+  <div *ngIf="hottestForecasts.length == 0">
+    <p>There are no hot cities at the moment</p>
+  </div>
+</section>

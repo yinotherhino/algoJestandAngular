@@ -1,0 +1,13 @@
+header {
+  padding: 20px;
+}
+
+main {
+  padding: 10px 50px;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 5px 10px;
+  }
+}

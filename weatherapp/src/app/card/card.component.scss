@@ -1,0 +1,35 @@
+.card {
+  background-color: var(--light-grey);
+  border-radius: 8px;
+  padding: 50px 50px;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  color: var(--deep-blue);
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  margin-right: 30px;
+  margin-top: 20px;
+  width: 400px;
+}
+
+.card:hover {
+  background-color: var(--white);
+  box-shadow: 0 5px 30px 5px var(--light-grey);
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+
+.card > div{
+  margin-right: 30px;
+}
+.title {
+  color: var(--grey);
+  font-size: 12px;
+}
+
+.icon {
+  margin-right: 30px;
+  color: var(--icon-color);
+}
