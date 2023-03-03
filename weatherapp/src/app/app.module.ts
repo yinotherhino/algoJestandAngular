@@ -27,7 +27,7 @@ import { ForecastCityComponent } from './forecast-city/forecast-city.component';
     ForecastCityComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,

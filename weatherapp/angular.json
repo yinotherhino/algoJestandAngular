@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/weatherapp",
+            "outputPath": "dist/weatherapp/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -27,11 +27,7 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              { "glob": "_redirects", 
-              "input": "src", 
-              "output": "/assets/"
-            }
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -101,6 +97,60 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/weatherapp/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "weatherapp:build:development",
+              "serverTarget": "weatherapp:server:development"
+            },
+            "production": {
+              "browserTarget": "weatherapp:build:production",
+              "serverTarget": "weatherapp:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "weatherapp:build:production",
+              "serverTarget": "weatherapp:server:production"
+            },
+            "development": {
+              "browserTarget": "weatherapp:build:development",
+              "serverTarget": "weatherapp:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
