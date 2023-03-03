@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'http://localhost:3000/api/v1/forecasts',
+    apiUrl: 'https://seams-weathered.netlify.app/api/v1/forecasts',
     apiKey: 'API_KEY'
   };
