@@ -34,6 +34,8 @@ FRONTEND_ACCESS_KEY
 # endpoints - /api/v1/forecasts
 
 GET
+<br>
+
 `/` - all
 <br>
 `/hot` - hottest cities
@@ -45,6 +47,8 @@ GET
 `popular` - popular cities
 
 POST
+<br>
+
 `/` {body: Array_Of_Weather_Objects}
 ### all endpoints require ['x-api-key'] from frontend which must be equal to FRONTEND_ACCESS_KEY
 
