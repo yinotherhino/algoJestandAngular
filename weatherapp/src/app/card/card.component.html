@@ -1,9 +1,7 @@
 
 <div *ngIf="weather != null" class="card" (click)="goToCity(weather.city)">
   <div class="icon">
-    <fa-icon [icon]="cloud"></fa-icon>
-
-    
+    <fa-icon *ngIf="weatherIcon!==null" [icon]="weatherIcon"></fa-icon>
   </div>
   <div *ngIf="weather != null">
     <p class="title">{{ weather.city }}</p>

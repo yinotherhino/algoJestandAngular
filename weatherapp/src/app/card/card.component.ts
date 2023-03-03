@@ -19,7 +19,7 @@ import { Weather } from '../weather';
 })
 export class CardComponent {
   @Input() weather: Weather | null = null;
-  rainIcon: IconDefinition | null = null;
+  weatherIcon: IconDefinition | null = null;
   constructor(private router: Router) {}
   goToCity(city: string) {
     console.log(city);
@@ -36,14 +36,16 @@ export class CardComponent {
 
   ngOnInit(): void {
     if (this.weather !== null) {
-      this.rainIcon =
-        this.weather.summary === 'rainy'
+      this.weatherIcon =
+        this.weather.summary.toLocaleLowerCase() === 'rainy'
           ? this.rain
-          : this.weather.summary === 'sunny'
+          : this.weather.summary.toLocaleLowerCase() === 'sunny'
           ? this.sun
-          : this.weather.summary === 'cloudy'
+          : this.weather.summary.toLocaleLowerCase() === 'cloudy'
           ? this.cloud
-          : null;
+          : this.weather.summary.toLocaleLowerCase() === 'foggy'
+          ? this.fog
+          : this.sun;
     }
   }
 }
