@@ -4,11 +4,11 @@ import {
   faCloud,
   faSmog,
   faCloudRain,
-  faTemperatureFull,
-  faTemperatureQuarter,
   faTemperatureThreeQuarters,
   IconDefinition,
   faSun,
+  faTemperature0,
+  faTemperature1,
 } from '@fortawesome/free-solid-svg-icons';
 import { Weather } from '../weather';
 
@@ -20,6 +20,8 @@ import { Weather } from '../weather';
 export class CardComponent {
   @Input() weather: Weather | null = null;
   weatherIcon: IconDefinition | null = null;
+  temperatureIcon: IconDefinition | null = null;
+
   constructor(private router: Router) {}
   goToCity(city: string) {
     console.log(city);
@@ -28,9 +30,9 @@ export class CardComponent {
 
   cloud = faCloud;
   fog = faSmog;
-  lowTemp = faTemperatureQuarter;
-  midTemp = faTemperatureThreeQuarters;
-  highTemp = faTemperatureFull;
+  lowTemp = faTemperature0;
+  midTemp = faTemperature1;
+  highTemp = faTemperatureThreeQuarters;
   rain = faCloudRain;
   sun = faSun;
 
@@ -46,6 +48,13 @@ export class CardComponent {
           : this.weather.summary.toLocaleLowerCase() === 'foggy'
           ? this.fog
           : this.sun;
+
+      this.temperatureIcon =
+        this.weather.temperatureC <= 25
+          ? this.lowTemp
+          : this.weather.temperatureC <= 36
+          ? this.midTemp
+          : this.highTemp;
     }
   }
 }

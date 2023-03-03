@@ -5,7 +5,7 @@
   </div>
   <div *ngIf="weather != null">
     <p class="title">{{ weather.city }}</p>
-    <h2>{{ weather.temperatureC }} &#176; C</h2>
+    <h2> <fa-icon *ngIf="temperatureIcon!==null" [icon]="temperatureIcon" ></fa-icon> {{ weather.temperatureC }} &#176; C</h2>
     <p class="title">Rain chance: {{ weather.rainChance }}</p>
   </div>
   <div *ngIf="weather != null">
