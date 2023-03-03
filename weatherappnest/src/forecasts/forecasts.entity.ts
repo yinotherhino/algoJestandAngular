@@ -2,6 +2,8 @@ import { Table, Column, Model, DataType } from 'sequelize-typescript';
 
 @Table
 export class ForecastsTable extends Model {
+    @Column({ allowNull: false, type: DataType.STRING, unique: true, primaryKey: true })
+    id: string;
     @Column({ allowNull: false, type: DataType.STRING })
     date: string;
     @Column({ allowNull: false })

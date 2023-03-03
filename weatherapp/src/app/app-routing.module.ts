@@ -6,7 +6,8 @@ import { ForecastCityComponent } from './forecast-city/forecast-city.component';
 
 const routes: Routes = [
   { path: '', component: ForecastsComponent },
-  { path:"allforecasts", component: AllforecastsComponent },
+  { path:"allforecasts", redirectTo: 'allforecasts/2023-03-04' },
+  { path:"allforecasts/:date", component: AllforecastsComponent },
   { path: ':city', component: ForecastCityComponent }
 ];
 

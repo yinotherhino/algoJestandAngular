@@ -50,4 +50,11 @@ export class ForecastsService {
     this.cache.set(url, rainyForecasts);
     return rainyForecasts;
   }
+
+  getByDate(date: string): Observable<Weather[]> {
+    const url = `${this.BASE_URL}/${date}`;
+    const forecasts = this.getCacheData(url) || this.http.get(url) as Observable<Weather[]>;
+    this.cache.set(url, forecasts);
+    return forecasts;
+  }
 }

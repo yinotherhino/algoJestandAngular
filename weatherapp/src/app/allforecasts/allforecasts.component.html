@@ -1,13 +1,20 @@
 <section>
-    <h3>All cities</h3>
-    <div *ngIf="forecasts.length > 0">
-      <app-card
-        *ngFor="let forecast of forecasts"
-        [weather]="forecast"
-        class="card-container"
-      ></app-card>
+  <h3>All cities</h3>
+  <div *ngIf="forecasts.length > 0">
+    <app-card
+      *ngFor="let forecast of forecasts"
+      [weather]="forecast"
+      class="card-container"
+    ></app-card>
+    <br />
+    <br />
+    <div class="pagination">
+      <a routerLinkActive="active" routerLink="/allforecasts/2023-03-04">Today</a>
+      <a routerLinkActive="active" routerLink="/allforecasts/2023-03-05">Tomorrow</a>
+      <a routerLinkActive="active"  routerLink="/allforecasts/2023-03-06">2023-03-06</a>
     </div>
-    <div *ngIf="forecasts.length == 0">
-      <p>There are no popular cities at the moment</p>
-    </div>
-  </section>
+  </div>
+  <div *ngIf="forecasts.length == 0">
+    <p>There are no forecasts at the moment</p>
+  </div>
+</section>

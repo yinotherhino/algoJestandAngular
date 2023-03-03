@@ -1,22 +1,49 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCloud, faSmog, faTemperatureFull, faTemperatureLow, faTemperatureQuarter, faTemperatureThreeQuarters } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCloud,
+  faSmog,
+  faCloudRain,
+  faTemperatureFull,
+  faTemperatureQuarter,
+  faTemperatureThreeQuarters,
+  IconDefinition,
+  faSun,
+} from '@fortawesome/free-solid-svg-icons';
+import { Weather } from '../weather';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() weather: any = {};
-  constructor(private router: Router) { }
+  @Input() weather: Weather | null = null;
+  rainIcon: IconDefinition | null = null;
+  constructor(private router: Router) {}
   goToCity(city: string) {
     console.log(city);
     this.router.navigate([city]);
   }
+
   cloud = faCloud;
   fog = faSmog;
   lowTemp = faTemperatureQuarter;
   midTemp = faTemperatureThreeQuarters;
   highTemp = faTemperatureFull;
+  rain = faCloudRain;
+  sun = faSun;
+
+  ngOnInit(): void {
+    if (this.weather !== null) {
+      this.rainIcon =
+        this.weather.summary === 'rainy'
+          ? this.rain
+          : this.weather.summary === 'sunny'
+          ? this.sun
+          : this.weather.summary === 'cloudy'
+          ? this.cloud
+          : null;
+    }
+  }
 }

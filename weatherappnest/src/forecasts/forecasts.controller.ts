@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { IWeather } from 'src/types/forecasts';
 import { ForecastsTable } from './forecasts.entity';
 import { ForecastsService } from './forecasts.service';
 
@@ -26,9 +27,8 @@ export class ForecastsController {
     return await this.forecastService.getForecastsByDate(date);
   }
 
-  // @Post()
-  // async createForecast(@Body() forecast: ForecastsTable): Promise<ForecastsTable> {
-
-  //   return await this.forecastService.createForecast(forecast);
-  // };
+  @Post()
+  async createForecast(@Body() forecast: ForecastsTable[]): Promise<ForecastsTable[]> {
+    return await this.forecastService.createForecasts(forecast);
+  };
 }

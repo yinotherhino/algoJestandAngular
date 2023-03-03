@@ -1,19 +1,14 @@
-<p>forecast-city works!</p>
+<h3>{{city}}</h3>
 <section>
-  <div *ngIf="forecast != null">
-    <h3>City: {{ forecast.city }}</h3>
-    <h3>Country: {{ forecast.date }}</h3>
-    <h3>Temperature: {{ forecast.temperatureC }}</h3>
-    <h3>Weather: {{ forecast.summary }}</h3>
-    <h3>Weather Icon: {{ icon }}</h3>
-    <h3>Weather Description: {{ forecast.summary }}</h3>
-    <h3>Sunrise: {{ forecast.sunrise }}</h3>
-    <h3>Sunset: {{ forecast.sunset }}</h3>
-    <h3>{{forecast.rainChance}}</h3>
-    <h3>{{forecast.temperatureF}}</h3>
-
+  <div *ngIf="forecasts.length > 0">
+    <app-card
+      *ngFor="let forecast of forecasts"
+      [weather]="forecast"
+      class="card-container"
+    ></app-card>
   </div>
-  <div *ngIf="forecast == null">
+  
+  <div *ngIf="forecasts.length<1">
     <p>No matching city</p>
   </div>
 </section>

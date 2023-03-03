@@ -2,6 +2,8 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
+<p>NestJs Postgres Sequelize STACK with angular frontend</p>
+
 ## Installation
 
 ```bash
@@ -50,6 +52,7 @@ POST
 <br>
 
 `/` {body: Array_Of_Weather_Objects}
+
 ### all endpoints require ['x-api-key'] from frontend which must be equal to FRONTEND_ACCESS_KEY
 
 <h3>Documentation: <a href=''>postman doc</a></h3>

@@ -8,7 +8,7 @@ export const databaseProviders = [
     useFactory: async () => {
       const sequelize = new Sequelize(Config.db);
       sequelize.addModels([ForecastsTable]);
-      await sequelize.sync().then(() => {
+      await sequelize.sync({alter:true}).then(() => {
         console.log('Database connection established');
         });
       return sequelize;

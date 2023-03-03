@@ -9,19 +9,27 @@ import { Weather } from '../weather';
   styleUrls: ['./forecast-city.component.scss']
 })
 export class ForecastCityComponent {
-  city: string = '';
-  forecast: Weather | null = null;
+  city: string | null = '';
+  forecasts: Weather[] | [] = [];
   icon: any = null;
   constructor(private route: ActivatedRoute, private forecastService: ForecastsService, private cdr: ChangeDetectorRef,) { }
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.city = params['city'];
+    this.route.paramMap.subscribe(params => {
+      this.city = params.get('city');
+      if(this.city !== null){
+        this.forecastService.getAllForecasts().subscribe((forecasts: any) => {
+          this.forecasts = forecasts.filter((forecast: any) => forecast.city === this.city)
+          this.forecasts.sort(({date:date1}:Weather, {date:date2}:Weather)=>{
+            const d1 = new Date(date1).getTime();
+            const d2 = new Date(date2).getTime();
+            return d1 - d2;
+          });
+          console.log(this.forecasts);
+        });
+      }
     });
-    this.forecastService.getAllForecasts().subscribe((forecasts: any) => {
-      this.forecast = forecasts.find((forecast: any) => forecast.city === this.city);
 
-      this.cdr.detectChanges();
-    });
+    this.cdr.detectChanges();
   }
 
 }

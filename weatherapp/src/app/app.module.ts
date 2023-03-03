@@ -34,7 +34,8 @@ import { ForecastCityComponent } from './forecast-city/forecast-city.component';
     StoreModule.forRoot({}, {})
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true },
+    
   ],
   bootstrap: [AppComponent]
 })

@@ -1,17 +1,19 @@
 
-<div class="card" (click)="goToCity(weather.city)">
+<div *ngIf="weather != null" class="card" (click)="goToCity(weather.city)">
   <div class="icon">
     <fa-icon [icon]="cloud"></fa-icon>
+
+    
   </div>
-  <div>
+  <div *ngIf="weather != null">
     <p class="title">{{ weather.city }}</p>
     <h2>{{ weather.temperatureC }} &#176; C</h2>
     <p class="title">Rain chance: {{ weather.rainChance }}</p>
   </div>
-  <div>
+  <div *ngIf="weather != null">
     <p class="title">{{ weather.summary }}</p>
-    <h2>{{ weather.temperatureF }} F</h2>
+    <p>Sunrise: {{ weather.sunrise }} </p>
+    <p class="title">Sunset: {{ weather.sunset }}</p>
     <p class="title">{{ weather.date }}</p>
-
   </div>
 </div>
