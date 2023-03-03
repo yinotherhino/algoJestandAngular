@@ -1,0 +1,14 @@
+<div class="grid" *ngIf="forecasts.length > 0">
+  <div >
+    <app-card [weather]="forecasts[0]" className="tall-card" ></app-card>
+  </div>
+  <div class="two-by-two">
+    <div *ngFor="let forecast of forecasts | slice:1"  >
+      <app-card
+        [weather]="forecast"
+        class="card-container"
+        className="short-card" 
+      ></app-card>
+    </div>
+  </div>
+</div>

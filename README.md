@@ -21,3 +21,8 @@ frontend : <a href='https://seams-weathered.netlify.app'>UI</a> <a href='https:/
 backend : <a href='https://weather-api-nest.onrender.com/'>API</a> <a href='https://github.com/yinotherhino/algoJestandAngular/tree/main/weatherappnest'>REPO</a>
 
 CASE 5 :
+<br />
+NOT IMPLEMENTED
+
+<br />
+

@@ -19,6 +19,7 @@ import { Weather } from '../weather';
 })
 export class CardComponent {
   @Input() weather: Weather | null = null;
+  @Input() className: string | null = null;
   weatherIcon: IconDefinition | null = null;
   temperatureIcon: IconDefinition | null = null;
 

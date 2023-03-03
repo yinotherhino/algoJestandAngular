@@ -1,14 +1,10 @@
-<h3>{{city}}</h3>
+<h3>{{ city }}</h3>
 <section>
   <div *ngIf="forecasts.length > 0">
-    <app-card
-      *ngFor="let forecast of forecasts"
-      [weather]="forecast"
-      class="card-container"
-    ></app-card>
+    <app-focus-forecasts [forecasts]="forecasts"></app-focus-forecasts>
   </div>
-  
-  <div *ngIf="forecasts.length<1">
+
+  <div *ngIf="forecasts.length < 1">
     <p>No matching city</p>
   </div>
 </section>

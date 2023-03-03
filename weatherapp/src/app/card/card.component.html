@@ -1,17 +1,41 @@
-
-<div *ngIf="weather != null" class="card" (click)="goToCity(weather.city)">
+<div
+  *ngIf="weather != null"
+  [ngClass]="className + ' card' || 'card'"
+  (click)="goToCity(weather.city)"
+>
+  <h3 *ngIf="className == 'tall-card'">Today</h3>
   <div class="icon">
-    <fa-icon *ngIf="weatherIcon!==null" [icon]="weatherIcon"></fa-icon>
+    <fa-icon *ngIf="weatherIcon !== null" [icon]="weatherIcon"></fa-icon>
+  <ng-container *ngIf="className == 'tall-card'">
+    {{weather.summary}}
+  </ng-container>
+
   </div>
-  <div *ngIf="weather != null">
+  <div>
     <p class="title">{{ weather.city }}</p>
-    <h2> <fa-icon *ngIf="temperatureIcon!==null" [icon]="temperatureIcon" ></fa-icon> {{ weather.temperatureC }} &#176; C</h2>
+    <h2>
+      <fa-icon
+        *ngIf="temperatureIcon !== null"
+        [icon]="temperatureIcon"
+      ></fa-icon>
+      {{ weather.temperatureC }} &#176; C
+    </h2>
     <p class="title">Rain chance: {{ weather.rainChance }}</p>
   </div>
-  <div *ngIf="weather != null">
+  <div  *ngIf="className !== 'tall-card'">
     <p class="title">{{ weather.summary }}</p>
-    <p>Sunrise: {{ weather.sunrise }} </p>
+    <p>Sunrise: {{ weather.sunrise }}</p>
     <p class="title">Sunset: {{ weather.sunset }}</p>
     <p class="title">{{ weather.date }}</p>
   </div>
+
+  <ng-container *ngIf="className == 'tall-card'">
+    <div>
+      <p>Sunrise: {{ weather.sunrise }}</p>
+    </div>
+    <div>
+      <p>Sunset: {{ weather.sunset }}</p>
+    </div>
+    <p class="title">{{ weather.date }}</p>
+  </ng-container>
 </div>

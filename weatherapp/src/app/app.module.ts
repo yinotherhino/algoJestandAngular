@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
 import { ForecastCityComponent } from './forecast-city/forecast-city.component';
+import { FocusForecastsComponent } from './focus-forecasts/focus-forecasts.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ForecastCityComponent } from './forecast-city/forecast-city.component';
     CardComponent,
     ButtonComponent,
     AllforecastsComponent,
-    ForecastCityComponent
+    ForecastCityComponent,
+    FocusForecastsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
