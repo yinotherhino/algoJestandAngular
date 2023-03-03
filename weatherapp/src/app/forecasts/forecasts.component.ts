@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Weather } from '../weather';
 import { ForecastsService } from '../services/forecasts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-forecasts',
@@ -11,25 +12,27 @@ export class ForecastsComponent {
   rainForecasts: Weather[] = [];
   hottestForecasts: Weather[] = [];
   popularForecasts: Weather[] = [];
+  private cache = new Map<string, any>();
 
-  constructor(private forecastService: ForecastsService, private cdr: ChangeDetectorRef) { }
+  constructor(private forecastService: ForecastsService, private cdr: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit(): void {
 
     this.forecastService.getRainyForecasts().subscribe((rainForecasts: Weather[]) => {
-      console.log(rainForecasts);
       this.rainForecasts = rainForecasts;
     });
 
     this.forecastService.getHottestForecasts().subscribe((hottestForecasts: Weather[]) => {
-      console.log(hottestForecasts);
       this.hottestForecasts = hottestForecasts;
     });
     this.forecastService.getPopularForecasts().subscribe((popularForecasts: Weather[]) => {
-      console.log(popularForecasts);
       this.popularForecasts = popularForecasts;
     });
     this.cdr.detectChanges();
+  }
+
+  onSeeAllCitiesClick() {
+    this.router.navigate(['/allforecasts']);
   }
 
 

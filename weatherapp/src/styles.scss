@@ -2,7 +2,7 @@
 // font-family: 'Roboto', sans-serif;
 * {
   box-sizing: border-box;
-  transition: ease-in 1s;
+  transition: ease-in 0.2s;
   font-family: var(--font);
 }
 
@@ -28,9 +28,11 @@ body {
 }
 
 button {
-  padding: 10px 7px;
+  padding: 12px 10px;
+  font-size: 12px;
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 a {
@@ -61,4 +63,26 @@ h5,
 h6 {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.card-container {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.card-container > div {
+  margin: 0 10px 0 0;
+}
+
+p {
+  color: var(--deep-blue);
+  margin: 0 0 10px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1400px){
+  
 }

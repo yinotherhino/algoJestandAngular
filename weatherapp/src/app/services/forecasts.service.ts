@@ -12,27 +12,42 @@ import { environment } from '../../environments/environments.prod';
 export class ForecastsService {
   forecasts: Weather[] = []
   BASE_URL = environment.apiUrl;
+  private cache = new Map<string, any>();
 
   constructor(private http: HttpClient) { }
 
+  private getCacheData(url: string): Observable<any> | void {
+    if (this.cache.has(url)) {
+      return this.cache.get(url);
+    }
+  }
+
   getAllForecasts(): Observable<Weather[]> {
-    const forecasts = this.http.get(`${this.BASE_URL}/`) as Observable<Weather[]>;
+    const url = `${this.BASE_URL}/`;
+    const forecasts = this.getCacheData(url) || this.http.get(url) as Observable<Weather[]>;
+    this.cache.set(url, forecasts);
     return forecasts;
   };
 
 
   getPopularForecasts(): Observable<Weather[]> {
-    const popularForecasts = this.http.get(`${this.BASE_URL}/popular`) as Observable<Weather[]>;
+    const url = `${this.BASE_URL}/popular`;
+    const popularForecasts = this.getCacheData(url) || this.http.get(url) as Observable<Weather[]>;
+    this.cache.set(url, popularForecasts);
     return popularForecasts;
   }
 
   getHottestForecasts(): Observable<Weather[]> {
-    const hottestForecasts = this.http.get(`${this.BASE_URL}/hot`) as Observable<Weather[]>;
-    return hottestForecasts;
+    const url = `${this.BASE_URL}/hot`;
+    const hotForecasts = this.getCacheData(url) || this.http.get(url) as Observable<Weather[]>;
+    this.cache.set(url, hotForecasts);
+    return hotForecasts;
   }
 
   getRainyForecasts(): Observable<Weather[]> {
-    const rainyForecasts = this.http.get(`${this.BASE_URL}/rainy`) as Observable<Weather[]>;
+    const url = `${this.BASE_URL}/rainy`;
+    const rainyForecasts = this.getCacheData(url) || this.http.get(url) as Observable<Weather[]>;
+    this.cache.set(url, rainyForecasts);
     return rainyForecasts;
   }
 }

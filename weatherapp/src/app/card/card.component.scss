@@ -10,7 +10,7 @@
   cursor: pointer;
   margin-right: 30px;
   margin-top: 20px;
-  width: 400px;
+  width: 28vw;
 }
 
 .card:hover {
@@ -21,7 +21,7 @@
   left: -5px;
 }
 
-.card > div{
+.card > div {
   margin-right: 30px;
 }
 .title {
@@ -32,4 +32,38 @@
 .icon {
   margin-right: 30px;
   color: var(--icon-color);
+}
+
+@media (max-width: 1400px) {
+  // .card {
+  //   width: 350px;
+  // }
+}
+
+@media (max-width: 1200px) {
+  .card {
+    width: 30vw;
+    padding: 50px 10px;
+    
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .card {
+    width: 45vw;
+    padding: 50px 10px;
+    
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+.card {
+  width: 90vw;
+  padding: 50px 10px;
+  
+  margin-right: 0;
+  margin-left: 0;
+}
 }

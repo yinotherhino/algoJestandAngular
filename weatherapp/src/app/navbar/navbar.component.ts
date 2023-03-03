@@ -11,16 +11,6 @@ export class NavbarComponent {
   constructor() { }
   results: any[] = [];
 
-  searchSuggestions() {
-    const searchValue = this.myInput.nativeElement.value;
-    if (searchValue.length < 1) {
-      this.results = [];
-      return;
-    }
-    console.log(searchValue);
-    this.results = this.forecasts.filter((forecast: any) => forecast.city.toLowerCase().includes(searchValue.toLowerCase())).map((forecast: any) => forecast.city);
-  }
-
   date: Date = new Date();
   day: number = this.date.getDate();
   year: number = this.date.getFullYear();
@@ -29,6 +19,4 @@ export class NavbarComponent {
   monthAndYear: string = `${this.month} ${this.year}`;
   fullDate: string = `${this.weekday}, ${this.month} ${this.day} , ${this.year}`;
 
-  ngoninit(): void {
-  }
 }

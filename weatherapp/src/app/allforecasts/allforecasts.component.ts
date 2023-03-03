@@ -14,7 +14,6 @@ export class AllforecastsComponent {
 
   ngOnInit(): void {
     this.forecastService.getAllForecasts().subscribe((forecasts: Weather[]) => {
-      console.log(forecasts);
       this.forecasts = forecasts;
     });
     this.cdr.detectChanges();

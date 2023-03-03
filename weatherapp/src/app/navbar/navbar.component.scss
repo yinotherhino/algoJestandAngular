@@ -39,6 +39,12 @@ input {
   background-color: var(--light-grey);
 }
 
+@media (max-width: 1200px) {
+  nav {
+    padding: 7px 20px;
+  }
+}
+
 @media (max-width: 600px) {
   nav {
     padding: 5px 10px;

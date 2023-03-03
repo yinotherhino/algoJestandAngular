@@ -13,13 +13,12 @@
 </section>
 
 <p>
-  <a routerLink="allforecats">
     <app-button
       [text]="'see all cities'"
       bgcolor="var(--icon-color)"
       color="var(--white)"
+      (btnClick)="onSeeAllCitiesClick()"
     ></app-button>
-  </a>
 </p>
 
 <section class="rainy-cities">

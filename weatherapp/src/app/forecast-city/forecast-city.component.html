@@ -1,0 +1,19 @@
+<p>forecast-city works!</p>
+<section>
+  <div *ngIf="forecast != null">
+    <h3>City: {{ forecast.city }}</h3>
+    <h3>Country: {{ forecast.date }}</h3>
+    <h3>Temperature: {{ forecast.temperatureC }}</h3>
+    <h3>Weather: {{ forecast.summary }}</h3>
+    <h3>Weather Icon: {{ icon }}</h3>
+    <h3>Weather Description: {{ forecast.summary }}</h3>
+    <h3>Sunrise: {{ forecast.sunrise }}</h3>
+    <h3>Sunset: {{ forecast.sunset }}</h3>
+    <h3>{{forecast.rainChance}}</h3>
+    <h3>{{forecast.temperatureF}}</h3>
+
+  </div>
+  <div *ngIf="forecast == null">
+    <p>No matching city</p>
+  </div>
+</section>

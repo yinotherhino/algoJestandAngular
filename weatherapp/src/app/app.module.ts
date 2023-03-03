@@ -14,6 +14,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
+import { ForecastCityComponent } from './forecast-city/forecast-city.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
     NavbarComponent,
     CardComponent,
     ButtonComponent,
-    AllforecastsComponent
+    AllforecastsComponent,
+    ForecastCityComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,7 @@ import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
     StoreModule.forRoot({}, {})
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
