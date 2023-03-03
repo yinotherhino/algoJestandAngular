@@ -4,7 +4,7 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 import { Weather } from '../weather';
-import { environment } from '../../environments/environments';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
