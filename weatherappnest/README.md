@@ -35,8 +35,13 @@ FRONTEND_ACCESS_KEY
 
 GET
 `/` - all
+<br>
 `/hot` - hottest cities
+<br>
+
 `/rainy` - highest rainchance cities
+<br>
+
 `popular` - popular cities
 
 POST
