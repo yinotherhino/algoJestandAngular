@@ -53,5 +53,5 @@ POST
 ### all endpoints require ['x-api-key'] from frontend which must be equal to FRONTEND_ACCESS_KEY
 
 <h3>Documentation: <a href=''>postman doc</a></h3>
-<h3>Api url: <a href=''>URL</a></h3>
-<h3>Frontend url: <a href=''>Frontend</a></h3>
+<h3>Api url: <a href='https://weather-api-nest.onrender.com'>URL</a></h3>
+<h3>Frontend url: <a href='https://seams-weathered.netlify.app'>Frontend</a></h3>
