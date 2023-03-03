@@ -6,11 +6,11 @@ CASE 1 - <a href="https://docs.google.com/document/d/1_l4dt6cCcENa50MOF0opMrV1tZ
 <br />
 <br />
 
-CASE 2 -<a href="https://github.com/yinotherhino/algoJestandAngular/blob/main/test/index.js"> https://github.com/yinotherhino/algoJestandAngular/blob/main/test/index.js</a>
+CASE 2 - writing tests: <a href="https://github.com/yinotherhino/algoJestandAngular/blob/main/test/index.js"> https://github.com/yinotherhino/algoJestandAngular/blob/main/test/index.js</a>
 <br />
 <br />
 
-CASE 3 - <a href="https://github.com/yinotherhino/algoJestandAngular/blob/main/algo/case3/case3.js">https://github.com/yinotherhino/algoJestandAngular/blob/main/algo/case3/case3.js</a>
+CASE 3 - algorithm: <a href="https://github.com/yinotherhino/algoJestandAngular/blob/main/algo/case3/case3.js">https://github.com/yinotherhino/algoJestandAngular/blob/main/algo/case3/case3.js</a>
 <br />
 <br />
 
