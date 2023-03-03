@@ -18,6 +18,6 @@ CASE 4 -
 <br />
 frontend : <a href='https://seams-weathered.netlify.app'>UI</a> <a href='https://github.com/yinotherhino/algoJestandAngular/tree/main/weatherapp'>REPO</a>
 <br/>
-backend : <a href='https://weather-api-nest.onrender.com/'>APII</a> <a href='https://github.com/yinotherhino/algoJestandAngular/tree/main/weatherappnest'>REPO</a>
+backend : <a href='https://weather-api-nest.onrender.com/'>API</a> <a href='https://github.com/yinotherhino/algoJestandAngular/tree/main/weatherappnest'>REPO</a>
 
 CASE 5 :
