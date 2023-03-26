@@ -8,17 +8,17 @@
     ></app-card>
   </div>
   <div *ngIf="popularForecasts.length == 0">
-    <p>There are no popular cities at the moment</p>
+    <p>Loading{{ loads }}</p>
   </div>
 </section>
 
 <p>
-    <app-button
-      [text]="'see all cities'"
-      bgcolor="var(--icon-color)"
-      color="var(--white)"
-      (btnClick)="onSeeAllCitiesClick()"
-    ></app-button>
+  <app-button
+    [text]="'see all cities'"
+    bgcolor="var(--icon-color)"
+    color="var(--white)"
+    (btnClick)="onSeeAllCitiesClick()"
+  ></app-button>
 </p>
 
 <section class="rainy-cities">
@@ -31,7 +31,7 @@
     ></app-card>
   </div>
   <div *ngIf="rainForecasts.length == 0">
-    <p>There are no rainy cities at the moment</p>
+    <p>Loading{{ loads }}</p>
   </div>
 </section>
 
@@ -45,6 +45,6 @@
     ></app-card>
   </div>
   <div *ngIf="hottestForecasts.length == 0">
-    <p>There are no hot cities at the moment</p>
+    <p>Loading{{ loads }}</p>
   </div>
 </section>

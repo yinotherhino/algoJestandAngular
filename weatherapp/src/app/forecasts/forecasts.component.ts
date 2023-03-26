@@ -11,12 +11,21 @@ import { Router } from '@angular/router';
 export class ForecastsComponent {
   rainForecasts: Weather[] = [];
   hottestForecasts: Weather[] = [];
-  popularForecasts: Weather[] = [];
-  private cache = new Map<string, any>();
+  popularForecasts: Weather[] = []
+  loads: string = "";
+  loadTimer: any;
 
   constructor(private forecastService: ForecastsService, private cdr: ChangeDetectorRef, private router: Router) { }
 
   ngOnInit(): void {
+    this.loadTimer = setInterval(() => {
+      this.loads += ".";
+      if (this.loads.length > 2) {
+        this.loads = "";
+      }
+      this.cdr.detectChanges();
+    }, 100);
+
 
     this.forecastService.getRainyForecasts().subscribe((rainForecasts: Weather[]) => {
       this.rainForecasts = rainForecasts;
@@ -29,6 +38,10 @@ export class ForecastsComponent {
       this.popularForecasts = popularForecasts;
     });
     this.cdr.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.loadTimer);
   }
 
   onSeeAllCitiesClick() {

@@ -11,7 +11,8 @@ import { Weather } from '../weather';
 export class AllforecastsComponent {
   forecasts: Weather[] = [];
   date: string | null = '2023-03-04';
-  loads = "...";
+  loads = "";
+  loaderTimer: any;
 
   constructor(
     private forecastService: ForecastsService,
@@ -20,6 +21,14 @@ export class AllforecastsComponent {
   ) {}
 
   ngOnInit(): void {
+    this.loaderTimer = setInterval(() => {
+      this.loads += ".";
+      if (this.loads.length > 2) {
+        this.loads = "";
+      }
+      this.cdr.detectChanges();
+    },100)
+
     this.route.paramMap.subscribe((params) => {
       this.date = params.get('date');
       this.forecastService
@@ -30,5 +39,9 @@ export class AllforecastsComponent {
     });
 
     this.cdr.detectChanges();
+  }
+  
+  ngOnDestroy(): void {
+    clearInterval(this.loaderTimer);
   }
 }
