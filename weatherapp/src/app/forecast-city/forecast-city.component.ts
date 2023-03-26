@@ -12,12 +12,24 @@ export class ForecastCityComponent {
   city: string | null = '';
   forecasts: Weather[] | [] = [];
   icon: any = null;
+  loads = '';
+  loaderTimer: any;
+
   constructor(
     private route: ActivatedRoute,
     private forecastService: ForecastsService,
     private cdr: ChangeDetectorRef
   ) {}
+
   ngOnInit() {
+    this.loaderTimer = setInterval(() => {
+      this.loads += '.';
+      if (this.loads.length > 2) {
+        this.loads = '';
+      }
+      this.cdr.detectChanges();
+    }, 100);
+
     this.route.paramMap.subscribe((params) => {
       this.city = params.get('city');
       if (this.city !== null) {
@@ -38,5 +50,9 @@ export class ForecastCityComponent {
     });
 
     this.cdr.detectChanges();
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.loaderTimer);
   }
 }
