@@ -11,6 +11,7 @@ import { Weather } from '../weather';
 export class AllforecastsComponent {
   forecasts: Weather[] = [];
   date: string | null = '2023-03-04';
+  loads = "...";
 
   constructor(
     private forecastService: ForecastsService,
